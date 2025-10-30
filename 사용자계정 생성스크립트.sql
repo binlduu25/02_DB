@@ -21,13 +21,16 @@
 
 -- 새로운 사용자 계정 생성
 CREATE USER c##sjh IDENTIFIED BY sjh1234;
+CREATE USER c##workbook IDENTIFIED BY workbook;
 -- > 계정 생성 구문 ( 계정명 : KH_SJH, 패스워드 : KH1234 )
 -- > 이대로 수행 시 에러 발생 ( SQL Error [1920] [42000]: ORA-01920: 사용자명 'KH_SJH'(이)가 다른 사용자나 롤 이름과 상충됩니다 )
 
 GRANT RESOURCE, CONNECT TO c##sjh;
+GRANT RESOURCE, CONNECT TO c##workbook;
 -- 사용자 계정에 권한 부여 설정
  -- RESOURCE : 테이블이나 인덱스 같은 DB 의 객체를 생성할 권한
  -- CONNECT : DB 에 연결하고 로그인할 수 있는 권한
 
 ALTER USER c##sjh DEFAULT TABLESPACE SYSTEM QUOTA UNLIMITED ON SYSTEM;
+ALTER USER c##workbook DEFAULT TABLESPACE SYSTEM QUOTA UNLIMITED ON SYSTEM;
 -- 객체가 생성될 수 있는 공간 할당량 무제한 지정
